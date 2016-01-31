@@ -1,0 +1,4 @@
+# This is a placeholder for upcoming macros
+#macro (ghpluginVersion)
+	<div class="gh-version">GitHub plugin V. 1.0</div>
+#end
