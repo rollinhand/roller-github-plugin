@@ -85,8 +85,12 @@ public class GitHubModel implements Model {
                     "  PageModel only supports page requests.");
         }
         
+        log.debug("Detect Weblog...: " + weblogRequest);
+        
         weblog = pageRequest.getWeblog();
         String weblogName = weblog.getName().toLowerCase();
+        
+        log.info("Weblog-Name: " + weblogName);
 		
 		try {
 			log.debug("GitHubModel init called");
@@ -97,9 +101,13 @@ public class GitHubModel implements Model {
 				extendVelocityEngine(engine);
 			}
 			
-			// Load settings from global
-			this.login 		= WebloggerConfig.getProperty(weblogName + PROPERTY_LOGIN);
-			this.password 	= WebloggerConfig.getProperty(weblogName + PROPERTY_PASSWORD); 
+			try {
+				// Load settings from global - throws exception if key not found
+				this.login 		= WebloggerConfig.getProperty(weblogName + PROPERTY_LOGIN);
+				this.password 	= WebloggerConfig.getProperty(weblogName + PROPERTY_PASSWORD); 
+			} catch (Exception e) {
+				log.warn("Key not found.", e);
+			}
 			
 			// Settings not available, look for repositories.properties in classpath
 			if (StringUtils.isEmpty(login)) {

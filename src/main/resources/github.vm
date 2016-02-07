@@ -1,4 +1,37 @@
 # This is a placeholder for upcoming macros
 #macro (ghpluginVersion)
-	<div class="gh-version">GitHub plugin V. 1.0</div>
+	<div class="gh-version">GitHub Roller plugin V. ${project.version}</div>
+#end
+
+#macro (ghpluginMyProfile)
+	#set ($profile = $github.profile)
+	<div class="gh-profile">
+	<div class="gh-avatar"><img class="gh-avatarImg" src="$profile.avatarUrl" /></div>
+		<span class="gh-realname gh-text">$profile.realname</span>
+		<span class="gh-username gh-text">$profile.username</span>
+	</div>
+#end
+
+#macro (ghpluginMyRepositories)
+	<ul class="gh-repository-list">
+		#foreach( $repo in $github.repositories )
+		<li class="gh-repository">
+			<span class="gh-repository-name gh-text"><a href="$repo.url">$repo.name</a></span>
+			<span class="gh-repository-description gh-text">$repo.description</span>
+		</li>
+		#end
+	</ul>
+#end
+
+#macro (ghpluginMyActivities)
+	<ul class="gh-activity-list">
+		#foreach( $activity in $github.activities )
+		<li class="gh-activity">
+			<span class="gh-activity-repository gh-text">$activity.repository</span>
+			<span class="gh-activity-event gh-text">$activity.event</span>
+			<span class="gh-username gh-text">$activity.username</span>
+			<span class="gh-date gh-text">$activity.createdAt</span> 
+		</li>
+		#end
+	</ul>
 #end

@@ -2,7 +2,6 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.kivio</groupId>
   <artifactId>roller-github-plugin</artifactId>
-  <version>0.9</version>
   <dependencies>
   	<dependency>
   		<groupId>org.apache.roller</groupId>
@@ -19,6 +18,12 @@
 	</dependency>
   </dependencies>
   <build>
+  	<resources>
+		<resource>
+			<directory>src/main/resources</directory>
+			<filtering>true</filtering>
+		</resource>
+  	</resources>
   	<plugins>
   		<plugin>
   			<groupId>org.apache.maven.plugins</groupId>
@@ -42,4 +47,15 @@
   		</plugin>
   	</plugins>
   </build>
+  <scm>
+  	<tag>HEAD</tag>
+  	<url>scm:git:git@github.com:rollinhand/roller-github-plugin</url>
+  	<connection>scm:git:git@github.com:rollinhand/roller-github-plugin</connection>
+  	<developerConnection>scm:git:git@github.com:rollinhand/roller-github-plugin</developerConnection>
+  </scm>
+  <issueManagement>
+  	<system>GitHub Issue Management</system>
+  	<url>https://github.com/rollinhand/roller-github-plugin/issues</url>
+  </issueManagement>
+  <version>1.0</version>
 </project>

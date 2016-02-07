@@ -46,7 +46,29 @@ Restart roller and you can access some GitHub information with the following com
 	$activities
 	$profile
 	
-The variables repositories and activities hold list which can be iterated with #foreach.	
+The variables repositories and activities hold list which can be iterated with #foreach.
+
+### Macros
+The plugin comes with a few predefined macros which makes the usage of the plugin mor comfortable in your own plugins:
+
+	#ghpluginVersion
+
+Displays the current version of the plugin.
+
+	#ghpluginMyProfile
+
+Displays information about your profile like the Avatar, your realname and username at GitHub.
+
+	#ghpluginMyRepositories
+
+Displays information about your repositories and a provided description. The repositories are listed in alphabetical order.
+
+	#ghpluginMyActivities
+	
+Displays your latest ten activities on GitHub. *Note:* This is experimental. Use with care.
+
+As an example for styling the output of the macros, see [github.css](src/main/resources/github.css). You can include this file in your own templates or integrate the classes into your own stylesheet.
+
 
 ##Feedback
 I am not able to test this plugin in a mulit-blog environment. Please let me know of any improvements you like to see for this plugin and send an email to [rollin.hand@gmx.de](mailto:rollin.hand@gmx.de).
