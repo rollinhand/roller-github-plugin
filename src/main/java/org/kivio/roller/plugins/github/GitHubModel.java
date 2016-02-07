@@ -26,6 +26,7 @@ import org.kohsuke.github.GHMyself;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 import org.kohsuke.github.PagedIterable;
+import org.kohsuke.github.PagedIterator;
 
 public class GitHubModel implements Model {
 	private static final long FIVE_MINUTES = 5 * 60 * 1000;
@@ -176,10 +177,12 @@ public class GitHubModel implements Model {
 		log.debug("loading public activities");
 		try {
 			PagedIterable<GHEventInfo> events = github.getMyself().listEvents();
-			events.withPageSize(PAGE_SIZE);
+			PagedIterator<GHEventInfo> it = events.withPageSize(PAGE_SIZE).iterator();
+			List<GHEventInfo> latestEvents = it.nextPage();
+			
 			activities = new LinkedList<PublicActivity>();
 			
-			for ( GHEventInfo event : events ) {
+			for ( GHEventInfo event : latestEvents ) {
 				PublicActivity activity = new PublicActivity();
 				activity.setUsername( event.getActor().getLogin() );
 				activity.setRepository( event.getRepository().getFullName() );
