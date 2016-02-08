@@ -4,7 +4,7 @@
 *#
 
 #macro (ghpluginVersion)
-	<div class="gh-version">GitHub Roller plugin V. ${project.version}</div>
+	<div class="gh-version"><a href="https://github.com/rollinhand/roller-github-plugin" target="_blank">GitHub Roller plugin V. ${project.version}</a></div>
 #end
 
 #macro (ghpluginMyProfile)
