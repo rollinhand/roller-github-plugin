@@ -49,7 +49,14 @@ Restart roller and you can access some GitHub information with the following com
 The variables repositories and activities hold list which can be iterated with #foreach.
 
 ### Macros
-The plugin comes with a few predefined macros which makes the usage of the plugin mor comfortable in your own plugins:
+The plugin comes with a few pre-defined macros which makes the usage of the plugin more comfortable in your own plugins. If a macro does not get replaced in your template use the parse command:
+
+	#if($github)
+	  #parse("github.vm")
+	  ...
+	#end
+
+Then the following macros are available:
 
 	#ghpluginVersion
 

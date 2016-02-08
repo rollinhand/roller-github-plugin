@@ -1,4 +1,8 @@
-# This is a placeholder for upcoming macros
+#*
+	This is a macro template
+	Use this file with #parse("github.vm") in your template.
+*#
+
 #macro (ghpluginVersion)
 	<div class="gh-version">GitHub Roller plugin V. ${project.version}</div>
 #end
