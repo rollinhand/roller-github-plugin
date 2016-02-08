@@ -15,7 +15,12 @@
 #macro (ghpluginMyRepositories)
 	<ul class="gh-repository-list">
 		#foreach( $repo in $github.repositories )
-		<li class="gh-repository">
+		#if ($velocityCount % 2 == 0)
+			#set($lineStyle = "gh-even")
+		#else
+			#set($lineStyle = "gh-odd")
+		#end
+		<li class="gh-repository $lineStyle">
 			<span class="gh-repository-name gh-text"><a href="$repo.url">$repo.name</a></span>
 			<span class="gh-repository-description gh-text">$repo.description</span>
 		</li>
@@ -26,7 +31,12 @@
 #macro (ghpluginMyActivities)
 	<ul class="gh-activity-list">
 		#foreach( $activity in $github.activities )
-		<li class="gh-activity">
+		#if ($velocityCount % 2 == 0)
+			#set($lineStyle = "gh-even")
+		#else
+			#set($lineStyle = "gh-odd")
+		#end
+		<li class="gh-activity $lineStyle">
 			<span class="gh-activity-repository gh-text">$activity.repository</span>
 			<span class="gh-activity-event gh-text">$activity.event</span>
 			<span class="gh-username gh-text">$activity.username</span>
