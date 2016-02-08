@@ -16,7 +16,7 @@ Finally get and build this plugin:
 	$ cd roller-github-plugin
 	$ mvn clean package
 
-Build assembles all needed dependencies into the plugin.
+Build assembles all needed dependencies into the plugin. If you do not want to clone from GitHub you can download a [release](release) as archive.
 
 ##Usage
 Copy the GitHub plugin jar file into the WEB-INF/lib directory of your Roller installation.
